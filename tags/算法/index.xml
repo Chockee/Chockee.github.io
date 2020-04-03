@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>算法 on Keep Hungry Keep Study</title>
+    <link>https://chockee.github.io/tags/%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 算法 on Keep Hungry Keep Study</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 17 Mar 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://chockee.github.io/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>厄拉多塞筛法：求质数的快速方法</title>
+      <link>https://chockee.github.io/post/primenummethod/</link>
+      <pubDate>Tue, 17 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chockee.github.io/post/primenummethod/</guid>
+      <description> 算法原理  一种较快的求一定区间内质数个数的算法，原理如下：
+[1]取一个集合，其中包含2至N的全部数字
+[2]从2开始，在集合中划去2的倍数
+[3]2的倍数划完以后，在集合中再划去3的倍数
+[4]3的倍数划完以后，4因为是2的倍数，在第[2]步中已经划去，则跳过4；
+[5]划去5的倍数&amp;hellip;一直到将根号N的倍数划去。 [6]剩下的没有划去的数，就是不大于N的数中的质数。
+实现思路 根据上述，我们可以整理出算法思路：
+定义一个大小为[N+1]的boolean型数组nums，将他们的初始值都置为true；
+遍历2到根号N的数字i，如果nums[i]为false则跳过i，若nums[i]为true，则将不大于N的i的倍数nums[i * j]中的值都置为false；
+定义一个ans用于记数，初始值为0；
+从2开始遍历数组nums，如果nums中的值为ture，则ans+1，最后输出ans。
+ 代码实现:
+public int countPrimes(int n){ boolean[] nums = new boolean[n]; for(int i = 2; i &amp;lt; nums.length; i++)nums[i] = true; for(int i = 2; i*i &amp;lt; n; i++){ if(nums[i]){ for(int j = 2; i*j &amp;lt; n; j++)nums[i*j] = false; } } int ans = 0; for(boolean x: nums)ans += x?1:0; return ans; }   </description>
+    </item>
+    
+  </channel>
+</rss>

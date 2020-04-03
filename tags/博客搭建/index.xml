@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>博客搭建 on Keep Hungry Keep Study</title>
+    <link>https://chockee.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link>
+    <description>Recent content in 博客搭建 on Keep Hungry Keep Study</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://chockee.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>如何用Hugo&#43;GitPage搭建静态博客</title>
+      <link>https://chockee.github.io/post/firstblog/</link>
+      <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://chockee.github.io/post/firstblog/</guid>
+      <description>作为大三党一名，再三考虑后选择放弃考研，加入明年的秋招大军。
+ 准备用博客记录下这一年中的学习经历，顺便培养自己的总结、表达能力。 于是上网搜寻了个人博客的搭建方法，主要的方法是用Hexo或者Hugo在本地搭建静态页面，然后再部署到服务器上。而Hugo较于Hexo更加灵活，快速，于是选择了Hugo。 在搭建的过程中也遇到了不少坑，主要是自己对hugo和git命令不熟悉的原因，百度也很少方案，最后靠自己慢慢摸索解决后，才发现百度上找不到的原因是这些问题实在太简单解决了&amp;hellip;  下载Hugo  我用的是Windows系统，在Github上的Hugo中，找到跟自己系统相对应的Hugo版本下载即可，我的系统是Windows64位，所以下载windows-64bits的版本。
+ 下载以后解压即可。注意，直接打开Hugo.exe是没用的！！要在系统的环境变量的PATH中添加Hugo.exe所在文件夹的路径。 比如Hugo.exe的路径是D:/Hugo/Hugo.exe，那么我们只需要填写D:/Hugo/就可以了 然后打开cmd，输入hugo version查看是否安装成功即可。
+  新建自己的博客目录及设置主题  在命令行界面中，进入到你想保存博客的目录。输入
+hugo new site [foldername]
+创建博客根目录文件夹 可以在https://themes.gohugo.io选择自己喜欢的主题，点击进入介绍页面，下拉可以看到类似于
+cd themes git clone &amp;lt;~~~~&amp;gt;  的段落，我们打开cmd，跟着操作即可。（Tips:如果博客页面根目录下没有themes文件夹，请自行创建）
+ 在命令行中输入
+hugo server -t [theme_name] --buildDrafts
+可以在本地搭建博客页面，然后在浏览器的地址栏中输入http://localhost:1313/，可以预览页面，Ctrl+C可以退出预览
+  利用GitPage部署博客  首先要有一个github账号
+(Windows系统还需要安装Git工具)。 登陆github，新建一个Repository 注意Repository name的填写内容，一定要填写自己的[用户名]+github.io，然后创建。 打开cmd，cd进入到博客根目录下，输入
+hugo --theme=[theme_name] --baseUrl=&amp;quot;https://[username].github.io&amp;quot; --buildDrafts
+可以看到一个public文件夹就被创建了。 在命令行界面中，依次输入：
+cd public git init #初始化一个新的本地仓库 git add . #将当前文件夹的所有文件都添加到暂存区 git commit -m &amp;quot;first commit&amp;quot; #将暂存区的文件提交到数据目录 git remote add origin https://github.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Chockee">
+  <meta name="description" content="description">
+  <meta name="keywords" content="keywords">
+  
+  <link rel="prev" href="https://chockee.github.io/post/firstblog/" />
+  <link rel="next" href="https://chockee.github.io/post/java%E4%B8%AD%E7%9A%84%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87%E6%96%B9%E6%B3%95/" />
+  <link rel="canonical" href="https://chockee.github.io/post/primenummethod/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           厄拉多塞筛法：求质数的快速方法 | Keep Hungry Keep Study
+       
+  </title>
+  <meta name="title" content="厄拉多塞筛法：求质数的快速方法 | Keep Hungry Keep Study">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/chockee.github.io"
+    },
+    "articleSection" : "post",
+    "name" : "厄拉多塞筛法：求质数的快速方法",
+    "headline" : "厄拉多塞筛法：求质数的快速方法",
+    "description" : " 算法原理  一种较快的求一定区间内质数个数的算法，原理如下：\n[1]取一个集合，其中包含2至N的全部数字\n[2]从2开始，在集合中划去2的倍数\n[3]2的倍数划完以后，在集合中再划去3的倍数\n[4]3的倍数划完以后，4因为是2的倍数，在第[2]步中已经划去，则跳过4；\n[5]划去5的倍数\x26hellip;一直到将根号N的倍数划去。 [6]剩下的没有划去的数，就是不大于N的数中的质数。\n实现思路 根据上述，我们可以整理出算法思路：\n定义一个大小为[N\x2b1]的boolean型数组nums，将他们的初始值都置为true；\n遍历2到根号N的数字i，如果nums[i]为false则跳过i，若nums[i]为true，则将不大于N的i的倍数nums[i * j]中的值都置为false；\n定义一个ans用于记数，初始值为0；\n从2开始遍历数组nums，如果nums中的值为ture，则ans\x2b1，最后输出ans。\n 代码实现:\npublic int countPrimes(int n){ boolean[] nums = new boolean[n]; for(int i = 2; i \x26lt; nums.length; i\x2b\x2b)nums[i] = true; for(int i = 2; i*i \x26lt; n; i\x2b\x2b){ if(nums[i]){ for(int j = 2; i*j \x26lt; n; j\x2b\x2b)nums[i*j] = false; } } int ans = 0; for(boolean x: nums)ans \x2b= x?1:0; return ans; }   ",
+    "inLanguage" : "en-us",
+    "author" : "ZhuJ1ntao",
+    "creator" : "ZhuJ1ntao",
+    "publisher": "ZhuJ1ntao",
+    "accountablePerson" : "ZhuJ1ntao",
+    "copyrightHolder" : "ZhuJ1ntao",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-03-17 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-03-17 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/chockee.github.io\/post\/primenummethod\/",
+    "wordCount" : "69",
+    "keywords" : [ "算法", "Keep Hungry Keep Study"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chockee.github.io">Keep Hungry Keep Study</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/post/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chockee.github.io">Keep Hungry Keep Study</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/post/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">厄拉多塞筛法：求质数的快速方法</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://chockee.github.io" rel="author">ZhuJ1ntao</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-03-17 itemprop="datePublished">March 17, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://chockee.github.io/categories/%E7%BB%83%E7%BA%A7%E4%B9%8B%E8%B7%AF/"> 练级之路 </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h3 id="算法原理">算法原理</h3>
+
+<ul>
+<li><p>一种较快的求一定区间内质数个数的算法，原理如下：<br />
+[1]取一个集合，其中包含2至N的全部数字<br />
+[2]从2开始，在集合中划去2的倍数<br />
+[3]2的倍数划完以后，在集合中再划去3的倍数<br />
+[4]3的倍数划完以后，4因为是2的倍数，在第[2]步中已经划去，则跳过4；<br />
+[5]划去5的倍数&hellip;一直到将根号N的倍数划去。
+[6]剩下的没有划去的数，就是不大于N的数中的质数。<br />
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/pic/primNum1.gif" alt="图片演示" class="lazyload"><figcaption class="image-caption">图片演示</figcaption></figure></p>
+
+<h3 id="实现思路">实现思路</h3></li>
+
+<li><p>根据上述，我们可以整理出算法思路：<br />
+定义一个大小为[N+1]的boolean型数组nums，将他们的初始值都置为true；<br />
+遍历2到根号N的数字i，如果nums[i]为false则跳过i，若nums[i]为true，则将不大于N的i的倍数nums[i * j]中的值都置为false；<br />
+定义一个ans用于记数，初始值为0；<br />
+从2开始遍历数组nums，如果nums中的值为ture，则ans+1，最后输出ans。</p></li>
+
+<li><p>代码实现:</p>
+
+<pre><code class="language-java">public int countPrimes(int n){
+boolean[] nums = new boolean[n];
+    
+for(int i = 2; i &lt; nums.length; i++)nums[i] = true;
+    
+for(int i = 2; i*i &lt; n; i++){
+    if(nums[i]){
+        for(int j = 2; i*j &lt; n; j++)nums[i*j] = false;
+    }
+}
+    
+int ans = 0;
+for(boolean x: nums)ans += x?1:0;
+    
+return ans;
+}
+</code></pre></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Chockee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://chockee.github.io/post/primenummethod/>https://chockee.github.io/post/primenummethod/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://chockee.github.io/tags/%E7%AE%97%E6%B3%95/">
+                    #算法</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://chockee.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://chockee.github.io/post/firstblog/" class="prev" rel="prev" title="如何用Hugo&#43;GitPage搭建静态博客"><i class="iconfont icon-left"></i>&nbsp;如何用Hugo&#43;GitPage搭建静态博客</a>
+         
+        
+        <a href="https://chockee.github.io/post/java%E4%B8%AD%E7%9A%84%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87%E6%96%B9%E6%B3%95/" class="next" rel="next" title="Java中的数组切片方法">Java中的数组切片方法&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+
+    <div class="post-comment">
+           
+            
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'Mupe1QtAtg1HF2c5cnyaJJ2Q-gzGzoHsz',
+        appKey: 'x6NYQCjozJXyEP1Y8dtRuSxD',
+        notify: 'false', 
+        verify: 'false', 
+        avatar:'mm', 
+        placeholder: '说点什么吧...',
+        visitor: 'true'
+    });
+  </script>
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://chockee.github.io">Chockee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

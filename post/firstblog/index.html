@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Chockee">
+  <meta name="description" content="description">
+  <meta name="keywords" content="keywords">
+  
+  
+  <link rel="next" href="https://chockee.github.io/post/primenummethod/" />
+  <link rel="canonical" href="https://chockee.github.io/post/firstblog/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           如何用Hugo&#43;GitPage搭建静态博客 | Keep Hungry Keep Study
+       
+  </title>
+  <meta name="title" content="如何用Hugo&#43;GitPage搭建静态博客 | Keep Hungry Keep Study">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/chockee.github.io"
+    },
+    "articleSection" : "post",
+    "name" : "如何用Hugo\x2bGitPage搭建静态博客",
+    "headline" : "如何用Hugo\x2bGitPage搭建静态博客",
+    "description" : "作为大三党一名，再三考虑后选择放弃考研，加入明年的秋招大军。\n 准备用博客记录下这一年中的学习经历，顺便培养自己的总结、表达能力。 于是上网搜寻了个人博客的搭建方法，主要的方法是用Hexo或者Hugo在本地搭建静态页面，然后再部署到服务器上。而Hugo较于Hexo更加灵活，快速，于是选择了Hugo。 在搭建的过程中也遇到了不少坑，主要是自己对hugo和git命令不熟悉的原因，百度也很少方案，最后靠自己慢慢摸索解决后，才发现百度上找不到的原因是这些问题实在太简单解决了\x26hellip;  下载Hugo  我用的是Windows系统，在Github上的Hugo中，找到跟自己系统相对应的Hugo版本下载即可，我的系统是Windows64位，所以下载windows-64bits的版本。\n 下载以后解压即可。注意，直接打开Hugo.exe是没用的！！要在系统的环境变量的PATH中添加Hugo.exe所在文件夹的路径。 比如Hugo.exe的路径是D:\/Hugo\/Hugo.exe，那么我们只需要填写D:\/Hugo\/就可以了 然后打开cmd，输入hugo version查看是否安装成功即可。\n  新建自己的博客目录及设置主题  在命令行界面中，进入到你想保存博客的目录。输入\nhugo new site [foldername]\n创建博客根目录文件夹 可以在https:\/\/themes.gohugo.io选择自己喜欢的主题，点击进入介绍页面，下拉可以看到类似于\ncd themes git clone \x26lt;~~~~\x26gt;  的段落，我们打开cmd，跟着操作即可。（Tips:如果博客页面根目录下没有themes文件夹，请自行创建）\n 在命令行中输入\nhugo server -t [theme_name] --buildDrafts\n可以在本地搭建博客页面，然后在浏览器的地址栏中输入http:\/\/localhost:1313\/，可以预览页面，Ctrl\x2bC可以退出预览\n  利用GitPage部署博客  首先要有一个github账号\n(Windows系统还需要安装Git工具)。 登陆github，新建一个Repository 注意Repository name的填写内容，一定要填写自己的[用户名]\x2bgithub.io，然后创建。 打开cmd，cd进入到博客根目录下，输入\nhugo --theme=[theme_name] --baseUrl=\x26quot;https:\/\/[username].github.io\x26quot; --buildDrafts\n可以看到一个public文件夹就被创建了。 在命令行界面中，依次输入：\ncd public git init #初始化一个新的本地仓库 git add . #将当前文件夹的所有文件都添加到暂存区 git commit -m \x26quot;first commit\x26quot; #将暂存区的文件提交到数据目录 git remote add origin https:\/\/github.",
+    "inLanguage" : "en-us",
+    "author" : "ZhuJ1ntao",
+    "creator" : "ZhuJ1ntao",
+    "publisher": "ZhuJ1ntao",
+    "accountablePerson" : "ZhuJ1ntao",
+    "copyrightHolder" : "ZhuJ1ntao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-25 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-11-25 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/chockee.github.io\/post\/firstblog\/",
+    "wordCount" : "101",
+    "keywords" : [ "Hugo","博客搭建", "Keep Hungry Keep Study"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chockee.github.io">Keep Hungry Keep Study</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/post/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chockee.github.io">Keep Hungry Keep Study</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/post/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">如何用Hugo&#43;GitPage搭建静态博客</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://chockee.github.io" rel="author">ZhuJ1ntao</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-11-25 itemprop="datePublished">November 25, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://chockee.github.io/categories/%E7%BB%83%E7%BA%A7%E4%B9%8B%E8%B7%AF/"> 练级之路 </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<ul>
+<li>作为大三党一名，再三考虑后选择放弃考研，加入明年的秋招大军。<br /></li>
+<li>准备用博客记录下这一年中的学习经历，顺便培养自己的总结、表达能力。
+于是上网搜寻了个人博客的搭建方法，主要的方法是用Hexo或者Hugo在本地搭建静态页面，然后再部署到服务器上。而Hugo较于Hexo更加灵活，快速，于是选择了Hugo。
+在搭建的过程中也遇到了不少坑，主要是自己对hugo和git命令不熟悉的原因，百度也很少方案，最后靠自己慢慢摸索解决后，才发现百度上找不到的原因是这些问题实在太简单解决了&hellip;</li>
+</ul>
+
+<h2 id="下载hugo">下载Hugo</h2>
+
+<ul>
+<li>我用的是Windows系统，在Github上的<a href="https://github.com/gohugoio/hugo/releases" rel="nofollow noreferrer" target="_blank">Hugo</a>中，找到跟自己系统相对应的Hugo版本下载即可，我的系统是Windows64位，所以下载windows-64bits的版本。<br /></li>
+<li>下载以后解压即可。注意，<strong>直接打开Hugo.exe是没用的！！</strong>要在系统的环境变量的PATH中添加Hugo.exe所在文件夹的路径。
+比如Hugo.exe的路径是D:/Hugo/Hugo.exe，那么我们只需要填写D:/Hugo/就可以了</li>
+<li>然后打开cmd，输入hugo version查看是否安装成功即可。<br /></li>
+</ul>
+
+<h2 id="新建自己的博客目录及设置主题">新建自己的博客目录及设置主题</h2>
+
+<ul>
+<li>在命令行界面中，进入到你想保存博客的目录。输入<br />
+<code>hugo new site [foldername]</code><br />
+创建博客根目录文件夹</li>
+
+<li><p>可以在<a href="https://themes.gohugo.io" rel="nofollow noreferrer" target="_blank">https://themes.gohugo.io</a>选择自己喜欢的主题，点击进入介绍页面，下拉可以看到类似于</p>
+
+<pre><code>cd themes
+git clone &lt;~~~~&gt;
+</code></pre>
+
+<p>的段落，我们打开cmd，跟着操作即可。（Tips:如果博客页面根目录下没有themes文件夹，请自行创建）</p></li>
+
+<li><p>在命令行中输入<br />
+<code>hugo server -t [theme_name] --buildDrafts</code><br />
+可以在本地搭建博客页面，然后在浏览器的地址栏中输入<a href="http://localhost:1313/" rel="nofollow noreferrer" target="_blank">http://localhost:1313/</a>，可以预览页面，Ctrl+C可以退出预览</p></li>
+</ul>
+
+<h2 id="利用gitpage部署博客">利用GitPage部署博客</h2>
+
+<ul>
+<li>首先要有一个github账号<br />
+(Windows系统还需要安装Git工具)。</li>
+<li>登陆github，新建一个Repository
+<strong>注意Repository name的填写内容</strong>，一定要填写自己的[用户名]+github.io，然后创建。</li>
+<li>打开cmd，cd进入到博客根目录下，输入<br />
+<code>hugo --theme=[theme_name] --baseUrl=&quot;https://[username].github.io&quot; --buildDrafts</code><br />
+可以看到一个public文件夹就被创建了。</li>
+
+<li><p>在命令行界面中，依次输入：</p>
+
+<pre><code class="language-java">cd public  
+git init   #初始化一个新的本地仓库
+git add .   #将当前文件夹的所有文件都添加到暂存区
+git commit -m &quot;first commit&quot;    #将暂存区的文件提交到数据目录
+git remote add origin https://github.com/[Username]/[Username].github.io.git&quot;  #连接到我的仓库
+git push -u master   #把文件推送到我仓库的master目录下，同时关联本地和远程的master分支
+</code></pre>
+
+<p>至此，博客部署完成，在地址栏中输入<br />
+<code>https://[username].github.io</code>  即可访问。</p></li>
+</ul>
+
+<h2 id="关于后续的主题更新以及博客更新">关于后续的主题更新以及博客更新</h2>
+
+<ul>
+<li>在<a href="https://themes.gohugo.io" rel="nofollow noreferrer" target="_blank">https://themes.gohugo.io</a>选择喜欢的主题，然后下载到本地的themes文件夹中</li>
+
+<li><p>那么如何把主题改成自己喜欢的样式呢？这个时候Hugo的好处就体现出来了，我们先将主题相关的配置文件拷贝到我们博客的根目录下，然后打开cmd，输入并运行</p>
+
+<pre><code>hugo server
+</code></pre>
+
+<p>然后用浏览器进入<a href="http://localhost:1313/" rel="nofollow noreferrer" target="_blank">http://localhost:1313/</a>，这个时候我们可以根据主题的说明文档对博客进行修改啦(小白推荐从config.toml文件入手，更改baseUrl、头像、联系方式等)，并且可以<strong><em>实时</em></strong>查看我们的修改结果。将博客改成我们心仪的样式之后，Ctrl+C结束预览。
+有的主题可能会报错，会提示hugo的版本不支持当前主题之类的，这个时候需要下载Hugo的拓展工具，我在折腾了一阵后放弃了，简单粗暴的选择了其他适合当前Hugo版本号的主题。</p></li>
+
+<li><p>更新好主题后我们怎么就给我们的博客写第一篇文章吧（就是我这篇了），在博客的根目录下，在命令行中输入</p>
+
+<pre><code>hugo new post/[name].md
+</code></pre>
+
+<p>然后我们就可以在./content/post中找到我们的markdown格式的文件啦，我们可以简答粗暴的用IDE或者下载Notepad++打开它，然后撰写完成自己的第一篇博客。<br />
+(Windows系统不推荐用记事本编辑，因为它会在每个文件的开头添加0xefbbbf字符，从而带来一些难以捉摸的问题)</p></li>
+
+<li><p>主题、文章都有了，我们就该尝试把它们更新到Github上。
+在命令行中输入以下内容就可以完成更新：</p>
+
+<pre><code class="language-java">hugo 
+cd public
+git add .
+git commit -m &quot;(*&amp;$@*(&amp;!&quot;
+git push
+</code></pre></li>
+</ul>
+
+<p>以上就是基于Hugo的个人博客搭建以及更新的简单教程啦。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Chockee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://chockee.github.io/post/firstblog/>https://chockee.github.io/post/firstblog/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://chockee.github.io/tags/hugo/">
+                    #Hugo</a></span>
+            
+            <span class="tag"><a href="https://chockee.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
+                    #博客搭建</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://chockee.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+         
+        
+        <a href="https://chockee.github.io/post/primenummethod/" class="next" rel="next" title="厄拉多塞筛法：求质数的快速方法">厄拉多塞筛法：求质数的快速方法&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+
+    <div class="post-comment">
+           
+            
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'Mupe1QtAtg1HF2c5cnyaJJ2Q-gzGzoHsz',
+        appKey: 'x6NYQCjozJXyEP1Y8dtRuSxD',
+        notify: 'false', 
+        verify: 'false', 
+        avatar:'mm', 
+        placeholder: '说点什么吧...',
+        visitor: 'true'
+    });
+  </script>
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://chockee.github.io">Chockee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
