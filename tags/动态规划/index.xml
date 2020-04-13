@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>动态规划 on Keep Hungry Keep Study</title>
+    <link>https://chockee.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
+    <description>Recent content in 动态规划 on Keep Hungry Keep Study</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 04 Apr 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://chockee.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Fibonacci的快速算法</title>
+      <link>https://chockee.github.io/post/fibonacci%E7%94%A8%E9%80%92%E5%BD%92%E5%A4%AA%E6%85%A2%E6%80%8E%E4%B9%88%E5%8A%9E/</link>
+      <pubDate>Sat, 04 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chockee.github.io/post/fibonacci%E7%94%A8%E9%80%92%E5%BD%92%E5%A4%AA%E6%85%A2%E6%80%8E%E4%B9%88%E5%8A%9E/</guid>
+      <description> Fibonacci数列是大多数人接触递归时学的第一个用法，一般是这么写的：
+public int Fib(int n){ if(n == 0||n == 1)return n; if(n == 2)return 1; return Fib(n-1) + Fib(n -2); }  简单粗暴好理解
+ 但是上述的方法存在的一个问题就是：存在了过多的重复计算。
+ 比如计算Fib(8)，我们要计算Fib(7)和Fib(6)，但是在计算Fib(7)的时候，我们又要重复计算一次Fib(6)，这样会大大降低程序的执行速度。
+ 于是有如下改进：
+public int Fibonacci(int n) { if(n == 0)return 0; if(n == 1)return 1; int prepre = 0, pre = 1, ans = prepre +pre; while(n &amp;gt;= 2){ ans = prepre + pre; prepre = pre; pre = ans; n--; } return ans; }   </description>
+    </item>
+    
+    <item>
+      <title>Java中的数组切片方法</title>
+      <link>https://chockee.github.io/post/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/</link>
+      <pubDate>Sat, 04 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chockee.github.io/post/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/</guid>
+      <description> 题目描述 HZ偶尔会拿些专业问题来忽悠那些非计算机专业的同学。今天测试组开完会后,他又发话了:在古老的一维模式识别中,常常需要计算连续子向量的最大和,当向量全为正数的时候,问题很好解决。但是,如果向量中包含负数,是否应该包含某个负数,并期望旁边的正数会弥补它呢？例如:{6,-3,-2,7,-15,1,2,2},连续子向量的最大和为8(从第0个开始,到第3个为止)。给一个数组，返回它的最大连续子序列的和，你会不会被他忽悠住？(子向量的长度至少是1)
+解题思路 动态规划，用dp数组保存当前位置的最大子序列和，然后返回dp数组中的最大值即可。
+时间复杂度O(n)，空间复杂度O(1)
+实现代码 public int FindGreatestSumOfSubArray(int[] array) { int max = array[0]; //直接在原数组上操作，将原数组作为dp数组 for (int i = 1; i &amp;lt; array.length; i++) { //如果dp[i-1]是负数，那么与dp[i]相加会使dp[i]变小 array[i] += array[i - 1] &amp;gt; 0 ? array[i - 1] : 0; //遍历的同时记录dp数组中的最大值 max = Math.max(max, array[i]); } return max; }  </description>
+    </item>
+    
+    <item>
+      <title>青蛙跳台阶问题</title>
+      <link>https://chockee.github.io/post/%E9%9D%92%E8%9B%99%E8%B7%B3%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sat, 04 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chockee.github.io/post/%E9%9D%92%E8%9B%99%E8%B7%B3%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%98/</guid>
+      <description> 题目 一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。
+解题思路 一只青蛙跳上n级台阶可以看成是从n-1级跳了1级台阶上来，也可以从n-1级跳2级台阶上来，所以n级台阶有F(n-1) + F(n-2)种跳法，于是就转化成了斐波拉切数列的问题。
+实现代码： public int JumpFloor(int target) { if(target == 1)return 1; if(target == 2)return 2; while() }  题目进阶 一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
+解题思路 根据第一题的思路不难想到，跳上n级台阶可以从n-1级跳1级，n-2级跳2级，n-3级跳3级&amp;hellip;从0级跳n级。所以F(n) = F(n-1) + F(n-2) + &amp;hellip; + F(0)，又因为F(0) + F(1) + F(2) + &amp;hellip; + F(n-2) = F(n-1),所以F(n) = 2F(n-1)。(F(0)设为1)
+实现代码 public int JumpFloorII(int target) { if(target &amp;lt;= 1)return target; int ans = 1, pre = 1; while(target &amp;gt; 1){ ans = 2*pre; pre = ans; target--; } return ans; }  </description>
+    </item>
+    
+  </channel>
+</rss>

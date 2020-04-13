@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Chockee">
+  <meta name="description" content="description">
+  <meta name="keywords" content="keywords">
+  
+  <link rel="prev" href="https://chockee.github.io/post/fibonacci%E7%94%A8%E9%80%92%E5%BD%92%E5%A4%AA%E6%85%A2%E6%80%8E%E4%B9%88%E5%8A%9E/" />
+  <link rel="next" href="https://chockee.github.io/post/%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E4%B8%80%E5%8D%8A%E7%9A%84%E6%95%B0%E5%AD%97/" />
+  <link rel="canonical" href="https://chockee.github.io/post/arrays.sort%E7%9A%84%E6%97%B6%E9%97%B4%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Arrays.sort()的时间复杂度分析 | Keep Hungry Keep Study
+       
+  </title>
+  <meta name="title" content="Arrays.sort()的时间复杂度分析 | Keep Hungry Keep Study">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/chockee.github.io"
+    },
+    "articleSection" : "post",
+    "name" : "Arrays.sort()的时间复杂度分析",
+    "headline" : "Arrays.sort()的时间复杂度分析",
+    "description" : " Arrays.sort()是用什么算法？  如果传入参数类型是基本类型数组，则是快速排序； 如果传入参数类型是对象数组，则是归并排序； 二者的时间复杂度都是O(nlogn) ，空间复杂度分别是O(1)和O(n)。  为什么？  使用不同类型的排序算法主要是由于快速排序是不稳定的，而合并排序是稳定的。这里的稳定是指比较相等的数据在排序之后仍然按照排序之前的前后顺序排列。对于基本数据类型，稳定性没有意义，而对于对象类型，稳定性是比较重要的，因为对象相等的判断可能只是判断关键属性，最好保持相等对象的非关键属性的顺序与排序前一致； 另外一个原因是由于合并排序相对而言比较次数比快速排序少，移动（对象引用的移动）次数比快速排序多，而对于对象来说，比较一般比移动耗时。  ",
+    "inLanguage" : "en-us",
+    "author" : "ZhuJ1ntao",
+    "creator" : "ZhuJ1ntao",
+    "publisher": "ZhuJ1ntao",
+    "accountablePerson" : "ZhuJ1ntao",
+    "copyrightHolder" : "ZhuJ1ntao",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-05 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-04-05 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/chockee.github.io\/post\/arrays.sort%E7%9A%84%E6%97%B6%E9%97%B4%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90\/",
+    "wordCount" : "8",
+    "keywords" : [ "Java", "Keep Hungry Keep Study"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chockee.github.io">Keep Hungry Keep Study</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/post/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chockee.github.io">Keep Hungry Keep Study</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/post/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Arrays.sort()的时间复杂度分析</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://chockee.github.io" rel="author">ZhuJ1ntao</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-04-05 itemprop="datePublished">April 5, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://chockee.github.io/categories/%E7%BB%83%E7%BA%A7%E4%B9%8B%E8%B7%AF/"> 练级之路 </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h3 id="arrays-sort-是用什么算法">Arrays.sort()是用什么算法？</h3>
+
+<ul>
+<li>如果传入参数类型是基本类型数组，则是快速排序；</li>
+<li>如果传入参数类型是对象数组，则是归并排序；</li>
+<li>二者的时间复杂度都是<code>O(nlogn)</code> ，空间复杂度分别是<code>O(1)</code>和<code>O(n)</code>。</li>
+</ul>
+
+<h3 id="为什么">为什么？</h3>
+
+<ul>
+<li>使用不同类型的排序算法主要是由于快速排序是不稳定的，而合并排序是稳定的。这里的稳定是指比较相等的数据在排序之后仍然按照排序之前的前后顺序排列。对于基本数据类型，稳定性没有意义，而对于对象类型，稳定性是比较重要的，因为对象相等的判断可能只是判断关键属性，最好保持相等对象的非关键属性的顺序与排序前一致；</li>
+<li>另外一个原因是由于合并排序相对而言比较次数比快速排序少，移动（对象引用的移动）次数比快速排序多，而对于对象来说，比较一般比移动耗时。</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Chockee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://chockee.github.io/post/arrays.sort%E7%9A%84%E6%97%B6%E9%97%B4%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/>https://chockee.github.io/post/arrays.sort%E7%9A%84%E6%97%B6%E9%97%B4%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://chockee.github.io/tags/java/">
+                    #Java</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://chockee.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://chockee.github.io/post/fibonacci%E7%94%A8%E9%80%92%E5%BD%92%E5%A4%AA%E6%85%A2%E6%80%8E%E4%B9%88%E5%8A%9E/" class="prev" rel="prev" title="Fibonacci的快速算法"><i class="iconfont icon-left"></i>&nbsp;Fibonacci的快速算法</a>
+         
+        
+        <a href="https://chockee.github.io/post/%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E4%B8%80%E5%8D%8A%E7%9A%84%E6%95%B0%E5%AD%97/" class="next" rel="next" title="数组中出现次数超过一半的数字">数组中出现次数超过一半的数字&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+
+    <div class="post-comment">
+           
+            
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'Mupe1QtAtg1HF2c5cnyaJJ2Q-gzGzoHsz',
+        appKey: 'x6NYQCjozJXyEP1Y8dtRuSxD',
+        notify: 'false', 
+        verify: 'false', 
+        avatar:'mm', 
+        placeholder: '说点什么吧...',
+        visitor: 'true'
+    });
+  </script>
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://chockee.github.io">Chockee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

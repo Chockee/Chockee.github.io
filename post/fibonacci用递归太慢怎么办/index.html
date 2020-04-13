@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Chockee">
+  <meta name="description" content="description">
+  <meta name="keywords" content="keywords">
+  
+  <link rel="prev" href="https://chockee.github.io/post/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/" />
+  <link rel="next" href="https://chockee.github.io/post/arrays.sort%E7%9A%84%E6%97%B6%E9%97%B4%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/" />
+  <link rel="canonical" href="https://chockee.github.io/post/fibonacci%E7%94%A8%E9%80%92%E5%BD%92%E5%A4%AA%E6%85%A2%E6%80%8E%E4%B9%88%E5%8A%9E/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Fibonacci的快速算法 | Keep Hungry Keep Study
+       
+  </title>
+  <meta name="title" content="Fibonacci的快速算法 | Keep Hungry Keep Study">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/chockee.github.io"
+    },
+    "articleSection" : "post",
+    "name" : "Fibonacci的快速算法",
+    "headline" : "Fibonacci的快速算法",
+    "description" : " Fibonacci数列是大多数人接触递归时学的第一个用法，一般是这么写的：\npublic int Fib(int n){ if(n == 0||n == 1)return n; if(n == 2)return 1; return Fib(n-1) \x2b Fib(n -2); }  简单粗暴好理解\n 但是上述的方法存在的一个问题就是：存在了过多的重复计算。\n 比如计算Fib(8)，我们要计算Fib(7)和Fib(6)，但是在计算Fib(7)的时候，我们又要重复计算一次Fib(6)，这样会大大降低程序的执行速度。\n 于是有如下改进：\npublic int Fibonacci(int n) { if(n == 0)return 0; if(n == 1)return 1; int prepre = 0, pre = 1, ans = prepre \x2bpre; while(n \x26gt;= 2){ ans = prepre \x2b pre; prepre = pre; pre = ans; n--; } return ans; }   ",
+    "inLanguage" : "en-us",
+    "author" : "ZhuJ1ntao",
+    "creator" : "ZhuJ1ntao",
+    "publisher": "ZhuJ1ntao",
+    "accountablePerson" : "ZhuJ1ntao",
+    "copyrightHolder" : "ZhuJ1ntao",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-04 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-04-04 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/chockee.github.io\/post\/fibonacci%E7%94%A8%E9%80%92%E5%BD%92%E5%A4%AA%E6%85%A2%E6%80%8E%E4%B9%88%E5%8A%9E\/",
+    "wordCount" : "68",
+    "keywords" : [ "递归","动态规划","递推", "Keep Hungry Keep Study"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chockee.github.io">Keep Hungry Keep Study</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/post/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chockee.github.io">Keep Hungry Keep Study</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/post/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Fibonacci的快速算法</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://chockee.github.io" rel="author">ZhuJ1ntao</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-04-04 itemprop="datePublished">April 4, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://chockee.github.io/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/"> 算法学习 </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <ul>
+<li><p>Fibonacci数列是大多数人接触递归时学的第一个用法，一般是这么写的：</p>
+
+<pre><code class="language-java">public int Fib(int n){
+if(n == 0||n == 1)return n;
+if(n == 2)return 1;
+return Fib(n-1) + Fib(n -2);
+}
+</code></pre></li>
+
+<li><p>简单粗暴好理解</p></li>
+
+<li><p>但是上述的方法存在的一个问题就是：存在了过多的重复计算。</p></li>
+
+<li><p>比如计算Fib(8)，我们要计算Fib(7)和Fib(6)，但是在计算Fib(7)的时候，我们又要重复计算一次Fib(6)，这样会大大降低程序的执行速度。</p></li>
+
+<li><p>于是有如下改进：</p>
+
+<pre><code class="language-java">public int Fibonacci(int n) {
+    if(n == 0)return 0;
+    if(n == 1)return 1;
+    int prepre = 0, pre = 1, ans = prepre +pre;
+    while(n &gt;= 2){
+        ans = prepre + pre;
+        prepre = pre;
+        pre = ans;
+        n--;
+    }
+    return ans;
+}
+</code></pre></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Chockee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://chockee.github.io/post/fibonacci%E7%94%A8%E9%80%92%E5%BD%92%E5%A4%AA%E6%85%A2%E6%80%8E%E4%B9%88%E5%8A%9E/>https://chockee.github.io/post/fibonacci%E7%94%A8%E9%80%92%E5%BD%92%E5%A4%AA%E6%85%A2%E6%80%8E%E4%B9%88%E5%8A%9E/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://chockee.github.io/tags/%E9%80%92%E5%BD%92/">
+                    #递归</a></span>
+            
+            <span class="tag"><a href="https://chockee.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                    #动态规划</a></span>
+            
+            <span class="tag"><a href="https://chockee.github.io/tags/%E9%80%92%E6%8E%A8/">
+                    #递推</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://chockee.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://chockee.github.io/post/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/" class="prev" rel="prev" title="Java中的数组切片方法"><i class="iconfont icon-left"></i>&nbsp;Java中的数组切片方法</a>
+         
+        
+        <a href="https://chockee.github.io/post/arrays.sort%E7%9A%84%E6%97%B6%E9%97%B4%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/" class="next" rel="next" title="Arrays.sort()的时间复杂度分析">Arrays.sort()的时间复杂度分析&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+
+    <div class="post-comment">
+           
+            
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'Mupe1QtAtg1HF2c5cnyaJJ2Q-gzGzoHsz',
+        appKey: 'x6NYQCjozJXyEP1Y8dtRuSxD',
+        notify: 'false', 
+        verify: 'false', 
+        avatar:'mm', 
+        placeholder: '说点什么吧...',
+        visitor: 'true'
+    });
+  </script>
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://chockee.github.io">Chockee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

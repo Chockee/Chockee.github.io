@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Chockee">
+  <meta name="description" content="description">
+  <meta name="keywords" content="keywords">
+  
+  <link rel="prev" href="https://chockee.github.io/post/%E7%AE%97%E6%B3%95%E6%8A%80%E5%B7%A7%E6%B6%88%E5%8E%BB%E6%9C%80%E5%90%8E%E4%B8%80%E4%BD%8D1/" />
+  <link rel="next" href="https://chockee.github.io/post/fibonacci%E7%94%A8%E9%80%92%E5%BD%92%E5%A4%AA%E6%85%A2%E6%80%8E%E4%B9%88%E5%8A%9E/" />
+  <link rel="canonical" href="https://chockee.github.io/post/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Java中的数组切片方法 | Keep Hungry Keep Study
+       
+  </title>
+  <meta name="title" content="Java中的数组切片方法 | Keep Hungry Keep Study">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/chockee.github.io"
+    },
+    "articleSection" : "post",
+    "name" : "Java中的数组切片方法",
+    "headline" : "Java中的数组切片方法",
+    "description" : " 题目描述 HZ偶尔会拿些专业问题来忽悠那些非计算机专业的同学。今天测试组开完会后,他又发话了:在古老的一维模式识别中,常常需要计算连续子向量的最大和,当向量全为正数的时候,问题很好解决。但是,如果向量中包含负数,是否应该包含某个负数,并期望旁边的正数会弥补它呢？例如:{6,-3,-2,7,-15,1,2,2},连续子向量的最大和为8(从第0个开始,到第3个为止)。给一个数组，返回它的最大连续子序列的和，你会不会被他忽悠住？(子向量的长度至少是1)\n解题思路 动态规划，用dp数组保存当前位置的最大子序列和，然后返回dp数组中的最大值即可。\n时间复杂度O(n)，空间复杂度O(1)\n实现代码 public int FindGreatestSumOfSubArray(int[] array) { int max = array[0]; \/\/直接在原数组上操作，将原数组作为dp数组 for (int i = 1; i \x26lt; array.length; i\x2b\x2b) { \/\/如果dp[i-1]是负数，那么与dp[i]相加会使dp[i]变小 array[i] \x2b= array[i - 1] \x26gt; 0 ? array[i - 1] : 0; \/\/遍历的同时记录dp数组中的最大值 max = Math.max(max, array[i]); } return max; }  ",
+    "inLanguage" : "en-us",
+    "author" : "ZhuJ1ntao",
+    "creator" : "ZhuJ1ntao",
+    "publisher": "ZhuJ1ntao",
+    "accountablePerson" : "ZhuJ1ntao",
+    "copyrightHolder" : "ZhuJ1ntao",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-04 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-04-04 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/chockee.github.io\/post\/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C\/",
+    "wordCount" : "49",
+    "keywords" : [ "动态规划", "Keep Hungry Keep Study"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chockee.github.io">Keep Hungry Keep Study</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/post/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chockee.github.io">Keep Hungry Keep Study</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/post/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Java中的数组切片方法</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://chockee.github.io" rel="author">ZhuJ1ntao</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-04-04 itemprop="datePublished">April 4, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://chockee.github.io/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/"> 算法学习 </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h3 id="题目描述">题目描述</h3>
+
+<p>HZ偶尔会拿些专业问题来忽悠那些非计算机专业的同学。今天测试组开完会后,他又发话了:在古老的一维模式识别中,常常需要计算连续子向量的最大和,当向量全为正数的时候,问题很好解决。但是,如果向量中包含负数,是否应该包含某个负数,并期望旁边的正数会弥补它呢？例如:{6,-3,-2,7,-15,1,2,2},连续子向量的最大和为8(从第0个开始,到第3个为止)。给一个数组，返回它的最大连续子序列的和，你会不会被他忽悠住？(子向量的长度至少是1)</p>
+
+<h3 id="解题思路">解题思路</h3>
+
+<p>动态规划，用dp数组保存当前位置的最大子序列和，然后返回dp数组中的最大值即可。<br />
+时间复杂度<code>O(n)</code>，空间复杂度<code>O(1)</code></p>
+
+<h3 id="实现代码">实现代码</h3>
+
+<pre><code class="language-java">public int FindGreatestSumOfSubArray(int[] array) {
+    int max = array[0];
+    
+    //直接在原数组上操作，将原数组作为dp数组
+    for (int i = 1; i &lt; array.length; i++) {
+    //如果dp[i-1]是负数，那么与dp[i]相加会使dp[i]变小
+    array[i] += array[i - 1] &gt; 0 ? array[i - 1] : 0;
+    
+    //遍历的同时记录dp数组中的最大值
+    max = Math.max(max, array[i]);
+    }
+    return max;
+}
+</code></pre>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Chockee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://chockee.github.io/post/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/>https://chockee.github.io/post/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://chockee.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                    #动态规划</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://chockee.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://chockee.github.io/post/%E7%AE%97%E6%B3%95%E6%8A%80%E5%B7%A7%E6%B6%88%E5%8E%BB%E6%9C%80%E5%90%8E%E4%B8%80%E4%BD%8D1/" class="prev" rel="prev" title="算法技巧：消去最后一位1"><i class="iconfont icon-left"></i>&nbsp;算法技巧：消去最后一位1</a>
+         
+        
+        <a href="https://chockee.github.io/post/fibonacci%E7%94%A8%E9%80%92%E5%BD%92%E5%A4%AA%E6%85%A2%E6%80%8E%E4%B9%88%E5%8A%9E/" class="next" rel="next" title="Fibonacci的快速算法">Fibonacci的快速算法&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+
+    <div class="post-comment">
+           
+            
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'Mupe1QtAtg1HF2c5cnyaJJ2Q-gzGzoHsz',
+        appKey: 'x6NYQCjozJXyEP1Y8dtRuSxD',
+        notify: 'false', 
+        verify: 'false', 
+        avatar:'mm', 
+        placeholder: '说点什么吧...',
+        visitor: 'true'
+    });
+  </script>
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://chockee.github.io">Chockee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

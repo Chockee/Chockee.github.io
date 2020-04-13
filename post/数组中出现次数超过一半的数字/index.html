@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Chockee">
+  <meta name="description" content="description">
+  <meta name="keywords" content="keywords">
+  
+  <link rel="prev" href="https://chockee.github.io/post/arrays.sort%E7%9A%84%E6%97%B6%E9%97%B4%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/" />
+  <link rel="next" href="https://chockee.github.io/post/%E5%88%A4%E6%96%AD%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E4%B8%8E%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89/" />
+  <link rel="canonical" href="https://chockee.github.io/post/%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E4%B8%80%E5%8D%8A%E7%9A%84%E6%95%B0%E5%AD%97/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           数组中出现次数超过一半的数字 | Keep Hungry Keep Study
+       
+  </title>
+  <meta name="title" content="数组中出现次数超过一半的数字 | Keep Hungry Keep Study">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/chockee.github.io"
+    },
+    "articleSection" : "post",
+    "name" : "数组中出现次数超过一半的数字",
+    "headline" : "数组中出现次数超过一半的数字",
+    "description" : "题目描述 数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出0。\n解题思路 第一个想法是先对数组做排序，然后依次统计每个数字出现的次数，如果遇到了出现次数超过一半的数字就返回这个数，如果遍历完数组还没有这个数，就返回0； 因为Arrays.sort()使用了快速排序，所以时间复杂度是O(nlogn)，空间复杂度是O(1)\n实现代码 import java.util.Arrays; public int MoreThanHalfNum_Solution(int [] array) { \/\/先考虑边界情况 if(array.length == 1)return array[0]; Arrays.sort(array); int times = 1; for(int i = 1; i \x26lt; array.length; i\x2b\x2b){ if(array[i] == array[i - 1]){ times\x2b\x2b; if(times \x26gt; array.length\/2)return array[i]; }else times = 1; } return 0; }  更好的方法 如果一个数字，它的出现次数超过一半，那么就意味着：其他数字跟它依次两两抵消，直到其他数字都被抵消完后，这个出现次数超过一半的数，还会有剩余的“幸存者”。\n我们尝试生成两个变量，初始值为1的count用于计数和ansNum来记录“幸存”的数字，遍历数组，如果和前一个数字相等，则相互抵消，count--，相等则count\x2b\x2b。如果count为0，则令ansNum等于当前的数字，并令count为1，重新开始计数。如果最后count大于1，则这个幸存的ansNum就是答案。 上述思路有个漏洞就是，假如前面的数字两两抵消，到最后一个数字突然出现，此时count重新计数，且ansNum等于它，就被最后这个数给“偷鸡”了，所以我们最后还要遍历一边数组，确认这个数的出现次数大于一半。\n实现代码 public int MoreThanHalfNum_Solution(int [] array) { if(array.length == 1)return array[0]; int count = 1, ansNum = array[0]; for(int i = 1; i \x26lt; array.",
+    "inLanguage" : "en-us",
+    "author" : "ZhuJ1ntao",
+    "creator" : "ZhuJ1ntao",
+    "publisher": "ZhuJ1ntao",
+    "accountablePerson" : "ZhuJ1ntao",
+    "copyrightHolder" : "ZhuJ1ntao",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-09 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-04-09 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/chockee.github.io\/post\/%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E4%B8%80%E5%8D%8A%E7%9A%84%E6%95%B0%E5%AD%97\/",
+    "wordCount" : "117",
+    "keywords" : [ "数组", "Keep Hungry Keep Study"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chockee.github.io">Keep Hungry Keep Study</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/post/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chockee.github.io">Keep Hungry Keep Study</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/post/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">数组中出现次数超过一半的数字</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://chockee.github.io" rel="author">ZhuJ1ntao</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-04-09 itemprop="datePublished">April 9, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://chockee.github.io/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/"> 算法学习 </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="题目描述">题目描述</h2>
+
+<p>数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出0。</p>
+
+<h2 id="解题思路">解题思路</h2>
+
+<p>第一个想法是先对数组做排序，然后依次统计每个数字出现的次数，如果遇到了出现次数超过一半的数字就返回这个数，如果遍历完数组还没有这个数，就返回0；
+因为Arrays.sort()使用了快速排序，所以时间复杂度是<code>O(nlogn)</code>，空间复杂度是<code>O(1)</code></p>
+
+<h2 id="实现代码">实现代码</h2>
+
+<pre><code class="language-java">import java.util.Arrays;
+
+public int MoreThanHalfNum_Solution(int [] array) {
+       //先考虑边界情况
+       if(array.length == 1)return array[0];
+        Arrays.sort(array);
+        int times = 1;
+        for(int i = 1; i &lt; array.length; i++){
+            if(array[i] == array[i - 1]){
+                times++;
+                if(times &gt; array.length/2)return array[i];
+            }else times = 1;
+        }
+        return 0;
+    }
+</code></pre>
+
+<h3 id="更好的方法">更好的方法</h3>
+
+<p>如果一个数字，它的出现次数超过一半，那么就意味着：其他数字跟它依次两两抵消，直到其他数字都被抵消完后，这个出现次数超过一半的数，还会有剩余的“幸存者”。<br />
+我们尝试生成两个变量，初始值为1的<code>count</code>用于计数和<code>ansNum</code>来记录“幸存”的数字，遍历数组，如果和前一个数字相等，则相互抵消，<code>count--</code>，相等则<code>count++</code>。如果<code>count</code>为0，则令<code>ansNum</code>等于当前的数字，并令<code>count</code>为1，重新开始计数。如果最后<code>count</code>大于1，则这个幸存的<code>ansNum</code>就是答案。
+上述思路有个漏洞就是，假如前面的数字两两抵消，到最后一个数字突然出现，此时<code>count</code>重新计数，且<code>ansNum</code>等于它，就被最后这个数给“偷鸡”了，所以我们最后还要遍历一边数组，确认这个数的出现次数大于一半。</p>
+
+<h3 id="实现代码-1">实现代码</h3>
+
+<pre><code class="language-java">public int MoreThanHalfNum_Solution(int [] array) {
+    if(array.length == 1)return array[0];
+    
+    int count = 1, ansNum = array[0];
+    for(int i = 1; i &lt; array.length; i++){
+        if(count == 0){
+            count = 1;
+            ansNum = array[i];
+        }
+        else if(array[i] != array[i - 1]){
+            count--;
+        }else{
+            count++;
+        }
+    }
+    
+    //在判断一遍ansNum是否符合提议，防止偷鸡
+    count = 0;
+    for(int num: array){
+        if(num == ansNum)count++;
+    }
+    return (count&gt;array.length/2)?ansNum : 0;
+}
+</code></pre>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Chockee </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://chockee.github.io/post/%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E4%B8%80%E5%8D%8A%E7%9A%84%E6%95%B0%E5%AD%97/>https://chockee.github.io/post/%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E4%B8%80%E5%8D%8A%E7%9A%84%E6%95%B0%E5%AD%97/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://chockee.github.io/tags/%E6%95%B0%E7%BB%84/">
+                    #数组</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://chockee.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://chockee.github.io/post/arrays.sort%E7%9A%84%E6%97%B6%E9%97%B4%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/" class="prev" rel="prev" title="Arrays.sort()的时间复杂度分析"><i class="iconfont icon-left"></i>&nbsp;Arrays.sort()的时间复杂度分析</a>
+         
+        
+        <a href="https://chockee.github.io/post/%E5%88%A4%E6%96%AD%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E4%B8%8E%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89/" class="next" rel="next" title="判断栈的压入与弹出序列是否相等">判断栈的压入与弹出序列是否相等&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+
+    <div class="post-comment">
+           
+            
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'Mupe1QtAtg1HF2c5cnyaJJ2Q-gzGzoHsz',
+        appKey: 'x6NYQCjozJXyEP1Y8dtRuSxD',
+        notify: 'false', 
+        verify: 'false', 
+        avatar:'mm', 
+        placeholder: '说点什么吧...',
+        visitor: 'true'
+    });
+  </script>
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://chockee.github.io">Chockee</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

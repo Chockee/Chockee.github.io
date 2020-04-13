@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>集合框架 on Keep Hungry Keep Study</title>
+    <link>https://chockee.github.io/tags/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/</link>
+    <description>Recent content in 集合框架 on Keep Hungry Keep Study</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 Apr 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://chockee.github.io/tags/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>判断栈的压入与弹出序列是否相等</title>
+      <link>https://chockee.github.io/post/%E5%88%A4%E6%96%AD%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E4%B8%8E%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chockee.github.io/post/%E5%88%A4%E6%96%AD%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E4%B8%8E%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89/</guid>
+      <description> 题目描述 输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否可能为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列4,5,3,2,1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等）
+解题思路 最开始想的是数学的方法，如果弹出序列出现一个数字，那么这个数字后面比它小的数字应该是按照这几个数字在压入序列中的逆序弹出的。
+后面发现不用那么麻烦，只要new一个栈模拟一下压入弹出即可。
+实现代码 public boolean IsPopOrder(int [] pushA,int [] popA) { if(pushA.length == 0 || popA.length == 0 || pushA.length != popA.length)return false; Stack&amp;lt;Integer&amp;gt; test = new Stack&amp;lt;&amp;gt;(); int index = 0;//用来定位弹出序列 //按照压入序列依次压入栈中 for(int pushNum: pushA){ test.push(pushNum); //如果栈顶元素和弹出序列指针一致，则弹出，继续判断栈顶元素和弹出序列 while(index &amp;lt; popA.length &amp;amp;&amp;amp; test.peek() == popA[index]){ test.pop(); index++; } } //如果栈不空，则说明栈中还有元素，且和弹出序列的顺序不一致 return test.isEmpty(); }   最开始写的时候，在判断栈顶元素和弹出序列处的判断循环条件是这么写的：
+while(test.peek() == popA[index])  然后运行的时候就会提示NullStackException，可以在条件中加入index &amp;lt; popA.length或者直接判断栈空否!test.isEmpty。
+  </description>
+    </item>
+    
+  </channel>
+</rss>
