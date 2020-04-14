@@ -6,10 +6,33 @@
     <description>Recent content in Posts on Keep Hungry Keep Study</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Apr 2020 18:29:11 +0800</lastBuildDate>
     
 	<atom:link href="https://chockee.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HTTP学习笔记（一）</title>
+      <link>https://chockee.github.io/post/http%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%80/</link>
+      <pubDate>Tue, 14 Apr 2020 18:29:11 +0800</pubDate>
+      
+      <guid>https://chockee.github.io/post/http%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%80/</guid>
+      <description>HTTP是啥？  HTTP是HyperText Transfer Protocol的缩写，中文意思是超文本传输协议。 它是一种计算机之间交流通信的规范，以及相关的各种控制和错误处理方式（行为约定和规范）。 超文本就是“超越了普通文本的文本”，是文字、图片、视频以及超链接的混合体
+  HTTP报文格式 HTTP常见字段 Host 客户端发送请求时，用来指定服务器域名。
+Host: www.hao123.com  Content-Length 服务器在返回数据时，用Content-Length表示本次回应的数据的长度。
+Content-Length: 1000  Connection 最常用于客户端要求服务器使用TCP持久连接，以便其他请求复用。
+HTTP/1.1版本的默认链接都是持久连接，但是为了兼容老版本的HTTP，需要指定Connection首部字段为Keep-Alive。
+Connection: keep-alive  一个可以复用的 TCP 连接就建立了，直到客户端或服务器主动关闭连接。但是，这不是标准字段。
+Content-Type 用于服务器回应时，告诉客户端，本次数据是什么格式。
+Content-Type: text/html; charset=utf-8  上面的类型表明，发送的是网页，而且编码是UTF-8。
+客户端请求的时候，可以使用Accept字段声明自己可以接受哪些数据格式。
+Accept: */*  Content-Encoding 说明数据的压缩方法。表示服务器返回的数据使用了什么压缩格式.
+Content-Encoding: gzip  上面表示服务器返回的数据采用了gzip方式压缩，告知客户端需要用此方式解压。
+客户端在请求时，用Accept-Encoding字段说明自己可以接受哪些压缩方法。
+Accept-Encoding: gzip, deflate  HTTP常见的状态码 2XX： 服务器成功处理了客户端的请求。
+200 OK 是最常见的成功状态码，表示一切正常。如果是非 HEAD 请求，服务器返回的响应头都会有 body 数据。
+204 No Content 也是常见的成功状态码，与 200 OK 基本相同，但响应头没有 body 数据。</description>
+    </item>
     
     <item>
       <title>判断栈的压入与弹出序列是否相等</title>
@@ -81,11 +104,9 @@ public int Fibonacci(int n) { if(n == 0)return 0; if(n == 1)return 1; int prepre
       <guid>https://chockee.github.io/post/%E7%AE%97%E6%B3%95%E6%8A%80%E5%B7%A7%E6%B6%88%E5%8E%BB%E6%9C%80%E5%90%8E%E4%B8%80%E4%BD%8D1/</guid>
       <description>算法原理  利用n&amp;amp;(n-1)可以消去二进制数中的最后一位1，比如：
  n = 10010, n-1 = 10001; n &amp;amp; (n-1) = 10010 &amp;amp; 10001 = 10000; 利用这个技巧，我们可以解决很多位运算相关的问题
-举个例子 [1] 判断一个正整数 n 是否为 2 的幂次方
- 如果一个数是 2 的幂次方，意味着 n 的二进制表示中，只有一个位 是1，其他都是0。
- 所以呢，我们只需要判断N中的二进制表示法中是否只存在一个 1 就可以了。实现代码如下:
+  举个例子  [1] 判断一个正整数 n 是否为 2 的幂次方 如果一个数是 2 的幂次方，意味着 n 的二进制表示中，只有一个位 是1，其他都是0。 所以呢，我们只需要判断N中的二进制表示法中是否只存在一个 1 就可以了。实现代码如下:
 boolean judege(int n){ return n &amp;amp; (n - 1) == 0; }  [2] 将整数 n 转换为 m,需要改变多少二进制位？
- 我们只需要计算 n 和 m 这两个数有多少个二进制位不一样就可以了，那么我们可以先让 n 和 m 进行异或，然后在计算异或得到的结果有多少个 1 就可以了。 ```java public int numsOfChange(int n, int m){ int t = n^m; int numOf1; while(t !</description>
+ 我们只需要计算 n 和 m 这两个数有多少个二进制位不一样就可以了，那么我们可以先让 n 和 m 进行异或，然后在计算异或得到的结果有多少个 1 就可以了。</description>
     </item>
     
     <item>

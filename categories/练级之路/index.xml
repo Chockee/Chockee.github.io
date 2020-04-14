@@ -6,51 +6,10 @@
     <description>Recent content in 练级之路 on Keep Hungry Keep Study</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 25 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://chockee.github.io/categories/%E7%BB%83%E7%BA%A7%E4%B9%8B%E8%B7%AF/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Arrays.sort()的时间复杂度分析</title>
-      <link>https://chockee.github.io/post/arrays.sort%E7%9A%84%E6%97%B6%E9%97%B4%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/</link>
-      <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://chockee.github.io/post/arrays.sort%E7%9A%84%E6%97%B6%E9%97%B4%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/</guid>
-      <description> Arrays.sort()是用什么算法？  如果传入参数类型是基本类型数组，则是快速排序； 如果传入参数类型是对象数组，则是归并排序； 二者的时间复杂度都是O(nlogn) ，空间复杂度分别是O(1)和O(n)。  为什么？  使用不同类型的排序算法主要是由于快速排序是不稳定的，而合并排序是稳定的。这里的稳定是指比较相等的数据在排序之后仍然按照排序之前的前后顺序排列。对于基本数据类型，稳定性没有意义，而对于对象类型，稳定性是比较重要的，因为对象相等的判断可能只是判断关键属性，最好保持相等对象的非关键属性的顺序与排序前一致； 另外一个原因是由于合并排序相对而言比较次数比快速排序少，移动（对象引用的移动）次数比快速排序多，而对于对象来说，比较一般比移动耗时。  </description>
-    </item>
-    
-    <item>
-      <title>Java中的数组切片方法</title>
-      <link>https://chockee.github.io/post/java%E4%B8%AD%E7%9A%84%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87%E6%96%B9%E6%B3%95/</link>
-      <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://chockee.github.io/post/java%E4%B8%AD%E7%9A%84%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87%E6%96%B9%E6%B3%95/</guid>
-      <description> 调用Java.util.Arrays中的copyOfRange()方法可以实现对数组的切片。 具体参数为：
-Type[] copyOfRange(Type[] array, int start, int end);  其中array为原来的数组，start为切片的起始位置，end为切片终止位置的前一位(取不到)：[start, end）
-  </description>
-    </item>
-    
-    <item>
-      <title>厄拉多塞筛法：求质数的快速方法</title>
-      <link>https://chockee.github.io/post/primenummethod/</link>
-      <pubDate>Tue, 17 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://chockee.github.io/post/primenummethod/</guid>
-      <description> 算法原理  一种较快的求一定区间内质数个数的算法，原理如下：
-[1]取一个集合，其中包含2至N的全部数字
-[2]从2开始，在集合中划去2的倍数
-[3]2的倍数划完以后，在集合中再划去3的倍数
-[4]3的倍数划完以后，4因为是2的倍数，在第[2]步中已经划去，则跳过4；
-[5]划去5的倍数&amp;hellip;一直到将根号N的倍数划去。 [6]剩下的没有划去的数，就是不大于N的数中的质数。
-实现思路 根据上述，我们可以整理出算法思路：
-定义一个大小为[N+1]的boolean型数组nums，将他们的初始值都置为true；
-遍历2到根号N的数字i，如果nums[i]为false则跳过i，若nums[i]为true，则将不大于N的i的倍数nums[i * j]中的值都置为false；
-定义一个ans用于记数，初始值为0；
-从2开始遍历数组nums，如果nums中的值为ture，则ans+1，最后输出ans。
- 代码实现:
-public int countPrimes(int n){ boolean[] nums = new boolean[n]; for(int i = 2; i &amp;lt; nums.length; i++)nums[i] = true; for(int i = 2; i*i &amp;lt; n; i++){ if(nums[i]){ for(int j = 2; i*j &amp;lt; n; j++)nums[i*j] = false; } } int ans = 0; for(boolean x: nums)ans += x?1:0; return ans; }   </description>
-    </item>
     
     <item>
       <title>如何用Hugo&#43;GitPage搭建静态博客</title>

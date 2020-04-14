@@ -6,10 +6,28 @@
     <description>Recent content in Tags on Keep Hungry Keep Study</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Apr 2020 18:29:11 +0800</lastBuildDate>
     
 	<atom:link href="https://chockee.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HTTP</title>
+      <link>https://chockee.github.io/tags/http/</link>
+      <pubDate>Tue, 14 Apr 2020 18:29:11 +0800</pubDate>
+      
+      <guid>https://chockee.github.io/tags/http/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>计算机网络</title>
+      <link>https://chockee.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+      <pubDate>Tue, 14 Apr 2020 18:29:11 +0800</pubDate>
+      
+      <guid>https://chockee.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>数组</title>
